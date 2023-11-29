@@ -1,0 +1,42 @@
+tests:
+  - name: Valid Login Test
+    priority: 1
+    actions:
+      - navigateTo: "http://practice.automationtesting.in/my-account"
+      - setInput: 
+          element: "username"
+          value: "bvvengatesan17"
+      - setInput:
+          element: "password"
+          value: "Vengatbalu17@"
+      - click: "login"
+    assertions:
+      - containsText:
+          element: "//*[@id=\"page-36\"]/div/div[1]/div/p[1]"
+          expected: "bvvengatesan17"
+      - logMessage: "Valid Login Test Pass"
+
+  - name: Invalid Login Test
+    priority: 2
+    actions:
+      - navigateTo: "http://practice.automationtesting.in/my-account"
+      - setInput:
+          element: "username"
+          value: "invalid_user"
+      - setInput:
+          element: "password"
+          value: "invalid_password"
+      - click: "login"
+    assertions:
+      - logMessage: "Invalid Login Test Pass"
+
+  - name: Login Without Username Test
+    priority: 3
+    actions:
+      - navigateTo: "http://practice.automationtesting.in/my-account"
+      - setInput:
+          element: "password"
+          value: "some_password"
+      - click: "login"
+    assertions:
+      - logMessage: "Login Without Username Test Pass"
