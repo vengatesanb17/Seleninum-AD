@@ -1,0 +1,6 @@
+@Sample.Vul.Application_HostAddress = http://localhost:5188
+
+GET {{Sample.Vul.Application_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
